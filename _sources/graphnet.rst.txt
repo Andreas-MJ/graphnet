@@ -1,0 +1,21 @@
+graphnet package
+================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   graphnet.data
+   graphnet.models
+   graphnet.training
+   graphnet.utilities
+
+Module contents
+---------------
+
+.. automodule:: graphnet
+   :members:
+   :undoc-members:
+   :show-inheritance:
