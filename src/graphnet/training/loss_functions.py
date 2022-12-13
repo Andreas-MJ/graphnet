@@ -349,3 +349,17 @@ class VonMisesFisher3DLoss(VonMisesFisherLoss):
         kappa = prediction[:, 3]
         p = kappa.unsqueeze(1) * prediction[:, [0, 1, 2]]
         return self._evaluate(p, target)
+
+class CosineLoss(LossFunction):
+
+    def _forward(self, prediction: Tensor, target: Tensor) -> Tensor:
+
+        """Calculates loss = 1 - cos(ø) = 1 - cos(target - prediction).
+
+        Args:
+            prediction (Tensor): Output of the model. Must have shape [N, 1]
+            target (Tensor): Target tensor, extracted from graph object.
+        Returns:
+            Tensor: Loss. Shape [n,1]
+        """        
+        return 1 - torch.cos(target - prediction)
